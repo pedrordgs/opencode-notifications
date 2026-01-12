@@ -42,13 +42,6 @@ sudo dnf install xdotool libnotify
 sudo pacman -S xdotool libnotify
 ```
 
-### Wayland (GNOME, KDE, Sway, Hyprland, etc.)
-
-Focus detection is **not supported** on Wayland due to its security model. Notifications will always be shown regardless of terminal focus.
-
-Requirements:
-- `notify-send` - For desktop notifications
-
 ### Tmux
 
 Tmux support works automatically when running OpenCode inside a tmux session. No additional setup is required.
@@ -64,12 +57,9 @@ This means you'll still receive notifications if:
 
 ## Platform Support
 
-| Environment | Focus Detection | Notes |
-|-------------|-----------------|-------|
-| X11 (any DE) | Full | Uses `xdotool` |
-| X11 + Tmux | Full | Window + pane-level detection |
-| Wayland (any) | None | Always notifies |
-| Wayland + Tmux | Partial | Tmux window-level only |
+Focus detection is supported on:
+- Linux with X11
+- Tmux (works with X11 for window and pane-level detection)
 
 ## Events
 
@@ -126,9 +116,8 @@ This simple approach ensures you're only notified when you need to be.
    ```
 
 2. **Check your notification daemon:**
-   - GNOME: Notifications should work out of the box
-   - KDE: Notifications should work out of the box
-   - Sway/Hyprland: Make sure you have a notification daemon like `mako` or `dunst`
+    - GNOME: Notifications should work out of the box
+    - KDE: Notifications should work out of the box
 
 ### Focus detection not working
 
@@ -137,13 +126,11 @@ This simple approach ensures you're only notified when you need to be.
 xdotool getactivewindow
 ```
 
-If this returns an error, make sure `xdotool` is installed and you're running on X11 (not Wayland).
+If this returns an error, make sure `xdotool` is installed.
 
 ### Notifications always showing (even when terminal is focused)
 
-This likely means focus detection isn't available for your setup:
-- On Wayland, focus detection is not supported - notifications will always show
-- On X11, make sure `xdotool` is installed and working
+Make sure `xdotool` is installed and working on X11.
 
 ### Tmux: Notifications showing when pane is visible
 
@@ -158,8 +145,3 @@ MIT
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Related
-
-- [opencode-notifier](https://github.com/mohak34/opencode-notifier) - Cross-platform notifications with sound support
-- [opencode-notificator](https://github.com/panta82/opencode-notificator) - Notifications with per-project sounds
