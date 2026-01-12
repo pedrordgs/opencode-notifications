@@ -140,7 +140,7 @@ If you're getting notifications even when the tmux pane running OpenCode is visi
 
 ## License
 
-MIT
+[MIT](LICENSE)
 
 ## Contributing
 
