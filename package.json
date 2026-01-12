@@ -1,0 +1,41 @@
+{
+  "name": "opencode-notifications",
+  "version": "0.1.0",
+  "description": "Smart desktop notifications for OpenCode - only notifies when terminal is not focused (Linux)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node && tsc --emitDeclarationOnly --declaration --outDir ./dist",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "bun run build"
+  },
+  "keywords": [
+    "opencode",
+    "plugin",
+    "notifications",
+    "linux",
+    "desktop",
+    "x11"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/opencode-notifications.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/opencode-notifications/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/opencode-notifications#readme",
+  "peerDependencies": {
+    "@opencode-ai/plugin": ">=0.0.1"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "latest",
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  }
+}
