@@ -1,6 +1,6 @@
 {
   "name": "opencode-notifications",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Smart desktop notifications for OpenCode - only notifies when terminal is not focused (Linux)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
